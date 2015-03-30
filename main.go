@@ -216,4 +216,32 @@ func collectAuthorCritics() {
 	}
 	fmt.Printf("Összesen:%d\n", c)
 	
+	
+	fmt.Printf("----------------------------------------------------\n")
+	fmt.Printf("Legtöbb:\n")
+	max1 := Author{}
+	max2 := Author{}
+	max3 := Author{}
+	for _, author := range authors {
+		
+		if "" == author.Name {
+			continue
+		}
+		
+		if author.InJournal > max1.InJournal {
+			max1 = author
+		}
+		
+		if author.InBookBlogs > max2.InBookBlogs {
+			max2 = author
+		}
+		
+		if author.InBloggers > max3.InBloggers {
+			max3 = author
+		}
+	}
+	fmt.Printf("Folyóiratok között: %s %d említés.\n", max1.Name, max1.InJournal)
+	fmt.Printf("Könyves blogok között: %s %d említés.\n", max2.Name, max2.InBookBlogs)
+	fmt.Printf("Bloggerek között: %s %d említés.\n", max3.Name, max3.InBloggers)
+	
  }
